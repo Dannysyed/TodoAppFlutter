@@ -16,15 +16,18 @@ class Todolist extends StatefulWidget {
 class _TodolistState extends State<Todolist> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.taskData.length,
-      itemBuilder: (context, index) => TodoItem(
-        id: widget.taskData[index].id,
-        title: widget.taskData[index].title,
-        description: widget.taskData[index].description,
-        icon: widget.taskData[index].icon,
-        status: widget.taskData[index].status,
-        date: widget.taskData[index].date,
+    return SizedBox(
+      height: 500,
+      child: ListView.builder(
+        itemCount: widget.taskData.length,
+        itemBuilder: (context, index) => TodoItem(
+          id: widget.taskData[index].id,
+          title: widget.taskData[index].title,
+          description: widget.taskData[index].description,
+          category: widget.taskData[index].category,
+          status: widget.taskData[index].status,
+          date: widget.taskData[index].date,
+        ),
       ),
     );
   }

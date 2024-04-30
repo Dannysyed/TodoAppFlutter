@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/addtask.dart';
 import 'package:todo/models/todolist.dart';
 import 'package:todo/widgets/todoList/todolists.dart';
 
@@ -14,35 +15,50 @@ class Todo extends StatefulWidget {
 class _TodoState extends State<Todo> {
   final List<Todolists> tasks = [
     Todolists(
-        id: "1",
         title: "Task1",
-        date: "20March2019",
-        icon: "work",
+        date: DateTime.now(),
+        category: Category.work,
         description: "This is descrpition",
         status: true),
     Todolists(
-        id: "2",
         title: "Task2",
-        date: "20March2019",
-        icon: "work",
+        date: DateTime.now(),
+        category: Category.work,
         description: "This is descrpition",
         status: true),
     Todolists(
-        id: "3",
         title: "Task3",
-        date: "20March2019",
-        icon: "work",
+        date: DateTime.now(),
+        category: Category.work,
         description: "This is descrpition",
         status: true),
   ];
+
+  void getModalOverlay() {
+    showModalBottomSheet(context: context, builder: (ctx) => const Addtask());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Taskey"),
         ),
-        body: Todolist(
-          taskData: tasks,
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Add a task"),
+                const SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                    onPressed: getModalOverlay, child: const Icon(Icons.add))
+              ],
+            ),
+            Todolist(taskData: tasks)
+          ],
         ));
   }
 }

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/todolist.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem(
       {super.key,
       required this.title,
       required this.date,
-      required this.icon,
+      required this.category,
       required this.description,
       required this.status,
       required this.id});
   final String title;
-  final String date;
+  final DateTime date;
   final String description;
-  final String icon;
+  final Category category;
   final String id;
   final bool status;
   @override
@@ -21,17 +22,32 @@ class TodoItem extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: Card(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: [const Text("Title:"), Text(title)],
-            ),
-            Row(
-              children: [const Text("Date:"), Text(date)],
-            ),
-            Row(
-              children: [const Text("description:"), Text(description)],
-            ),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                    Text(date.toString(), style: const TextStyle(fontSize: 15)),
+                    Text(description, style: const TextStyle(fontSize: 15)),
+                  ],
+                ),
+                Row(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {}, child: const Icon(Icons.delete)),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
+                        onPressed: () {}, child: const Icon(Icons.edit))
+                  ],
+                )
+              ],
+            )
           ],
         ),
       ),
