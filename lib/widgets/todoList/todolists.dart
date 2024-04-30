@@ -21,9 +21,9 @@ class _TodolistState extends State<Todolist> {
       itemBuilder: (context, index) => TodoItem(
         id: widget.taskData[index].id,
         title: widget.taskData[index].title,
-        assignedBy: widget.taskData[index].assignedBy,
+        description: widget.taskData[index].description,
         icon: widget.taskData[index].icon,
-        assignee: widget.taskData[index].assignee,
+        status: widget.taskData[index].status,
         date: widget.taskData[index].date,
       ),
     );

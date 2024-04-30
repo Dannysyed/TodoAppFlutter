@@ -14,26 +14,26 @@ class Todo extends StatefulWidget {
 class _TodoState extends State<Todo> {
   final List<Todolists> tasks = [
     Todolists(
-        assignee: "Daniyal",
-        date: "20March2019",
-        icon: "work",
         id: "1",
         title: "Task1",
-        assignedBy: "Kristen"),
-    Todolists(
-        assignee: "Kamil",
         date: "20March2019",
         icon: "work",
+        description: "This is descrpition",
+        status: true),
+    Todolists(
         id: "2",
         title: "Task2",
-        assignedBy: "Kristen"),
-    Todolists(
-        assignee: "Kamil",
         date: "20March2019",
         icon: "work",
-        id: "2",
-        title: "Task2",
-        assignedBy: "Kristen")
+        description: "This is descrpition",
+        status: true),
+    Todolists(
+        id: "3",
+        title: "Task3",
+        date: "20March2019",
+        icon: "work",
+        description: "This is descrpition",
+        status: true),
   ];
   @override
   Widget build(BuildContext context) {

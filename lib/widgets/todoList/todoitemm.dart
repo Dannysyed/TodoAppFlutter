@@ -6,31 +6,34 @@ class TodoItem extends StatelessWidget {
       required this.title,
       required this.date,
       required this.icon,
-      required this.assignee,
-      required this.assignedBy,
+      required this.description,
+      required this.status,
       required this.id});
   final String title;
   final String date;
-  final String assignee;
+  final String description;
   final String icon;
   final String id;
-  final String assignedBy;
+  final bool status;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [const Text("Title:"), Text(title)],
-          ),
-          Row(
-            children: [const Text("Date:"), Text(date)],
-          ),
-          Row(
-            children: [const Text("AssignedBy:"), Text(assignedBy)],
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [const Text("Title:"), Text(title)],
+            ),
+            Row(
+              children: [const Text("Date:"), Text(date)],
+            ),
+            Row(
+              children: [const Text("description:"), Text(description)],
+            ),
+          ],
+        ),
       ),
     );
   }
